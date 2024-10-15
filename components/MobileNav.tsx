@@ -4,29 +4,7 @@ import { usePathname } from "next/navigation";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
-
-const links = [
-  {
-    name: "home",
-    path: "/",
-  },
-  {
-    name: "services",
-    path: "/services",
-  },
-  {
-    name: "resume",
-    path: "/resume",
-  },
-  {
-    name: "work",
-    path: "/work",
-  },
-  {
-    name: "contact",
-    path: "/contact",
-  },
-];
+import { navLinks } from "@/shared/navLinks";
 
 const MobileNav: FunctionComponent = () => {
   const pathname = usePathname();
@@ -47,7 +25,7 @@ const MobileNav: FunctionComponent = () => {
         </div>
         {/* nav */}
         <nav className="flex flex-col justify-center items-center gap-8">
-          {links.map((link, index) => (
+          {navLinks.map((link, index) => (
             <Link
               href={link.path}
               key={index}

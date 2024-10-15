@@ -1,37 +1,15 @@
 "use client";
 
+import { navLinks } from "@/shared/navLinks";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FunctionComponent } from "react";
-
-const links = [
-  {
-    name: "home",
-    path: "/",
-  },
-  {
-    name: "services",
-    path: "/services",
-  },
-  {
-    name: "resume",
-    path: "/resume",
-  },
-  {
-    name: "work",
-    path: "/work",
-  },
-  {
-    name: "contact",
-    path: "/contact",
-  },
-];
 
 const Nav: FunctionComponent = () => {
   const pathname = usePathname();
   return (
     <nav className="flex gap-8">
-      {links.map((link, index) => (
+      {navLinks.map((link, index) => (
         <Link
           href={link.path}
           key={index}
