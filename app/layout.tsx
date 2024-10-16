@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import "swiper/css"; // TODO_KW: czy to nie powinno być zaciągane gdzieś wyżej?
 
 import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";

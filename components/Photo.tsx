@@ -20,7 +20,7 @@ const Photo: FunctionComponent = () => {
           priority
           quality={100}
           fill
-          alt=""
+          alt="Photo of me"
           className="object-contain"
         />
       </motion.div>
