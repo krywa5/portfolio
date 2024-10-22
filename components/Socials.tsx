@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaYoutube, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 type Social = {
   icon: JSX.Element;
@@ -10,19 +10,11 @@ type Social = {
 const socials: Social[] = [
   {
     icon: <FaGithub />,
-    path: "#", // TODO_KW: add
+    path: "https://github.com/krywa5",
   },
   {
     icon: <FaLinkedin />,
-    path: "#", // TODO_KW: add
-  },
-  {
-    icon: <FaYoutube />,
-    path: "#", // TODO_KW: add
-  },
-  {
-    icon: <FaTwitter />,
-    path: "#", // TODO_KW: add
+    path: "https://www.linkedin.com/in/krystianwasilewski/",
   },
 ];
 
@@ -38,7 +30,13 @@ const Socials: FunctionComponent<SocialsProps> = ({
   return (
     <div className={containerClassName}>
       {socials.map((social, index) => (
-        <Link key={index} href={social.path} className={iconsClassName}>
+        <Link
+          key={index}
+          href={social.path}
+          className={iconsClassName}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {social.icon}
         </Link>
       ))}
