@@ -29,35 +29,37 @@ const projects: Project[] = [
   {
     num: "01",
     category: "frontend",
-    title: "project 1",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione pariatur voluptate, aliquid labore cum reprehenderit!",
+    title: "Forkify",
+    description: "Recipes search engine.",
     stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
     image: "/assets/work/thumb1.png",
-    live: "",
-    github: "",
+    live: "https://krywa5.github.io/forkify/",
+    github: "https://github.com/krywa5/forkify",
   },
   {
     num: "02",
-    category: "fullstack",
-    title: "project 2",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione pariatur voluptate, aliquid labore cum reprehenderit!",
-    stack: [{ name: "Next.js" }, { name: "Tailwind.css" }, { name: "Node.js" }],
+    category: "frontend",
+    title: "Income manager",
+    description: "A tool to convert foreign revenues into Polish zloty.",
+    stack: [
+      { name: "React.js" },
+      { name: "Typescript" },
+      { name: "Material UI" },
+    ],
     image: "/assets/work/thumb2.png",
-    live: "",
-    github: "",
+    live: "https://krywa5.github.io/income-manager",
+    github: "https://github.com/krywa5/income-manager",
   },
   {
     num: "03",
     category: "frontend",
-    title: "project 3",
+    title: "Natours",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione pariatur voluptate, aliquid labore cum reprehenderit!",
-    stack: [{ name: "Next.js" }, { name: "Tailwind.css" }],
+      "The landing page is full of modern design and good-looking animations.",
+    stack: [{ name: "Html 5" }, { name: "SCSS" }, { name: "Javascript" }],
     image: "/assets/work/thumb3.png",
-    live: "",
-    github: "",
+    live: "https://krywa5.github.io/natours/",
+    github: "https://github.com/krywa5/natours",
   },
 ];
 
@@ -109,7 +111,11 @@ const Work: FunctionComponent = () => {
               <div className="flex items-center gap-4">
                 {/* TODO: create component for this */}
                 {/* live project button */}
-                <Link href={project.live}>
+                <Link
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
@@ -122,7 +128,11 @@ const Work: FunctionComponent = () => {
                   </TooltipProvider>
                 </Link>
                 {/* github project button */}
-                <Link href={project.github}>
+                <Link
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">

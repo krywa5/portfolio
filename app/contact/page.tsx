@@ -59,14 +59,14 @@ const Contact: FunctionComponent = () => {
                 Let&apos;s work together!
               </h3>
               <p className="text-white/60">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus,
-                saepe?
+                I look forward to hearing from you - together, we can create
+                something exceptional!
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input type="firstname" placeholder="Firstname" />
                 <Input type="lastname" placeholder="Lastname" />
-                <Input type="email" placeholder="Email address" />
+                <Input type="email" placeholder="Email address" required />
                 <Input type="phone" placeholder="Phone number" />
               </div>
               {/* select - TODO: Do I need that? */}
@@ -77,10 +77,12 @@ const Contact: FunctionComponent = () => {
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Select a service</SelectLabel>
-                    <SelectItem value="web-development">
-                      Web Development
+                    <SelectItem value="frontend">
+                      Frontend development
                     </SelectItem>
-                    <SelectItem value="uiux-design">UI/UX Design</SelectItem>
+                    <SelectItem value="fullstack">
+                      Fullstack development
+                    </SelectItem>
                     <SelectItem value="logo-design">Logo Design</SelectItem>
                   </SelectGroup>
                 </SelectContent>
@@ -89,6 +91,7 @@ const Contact: FunctionComponent = () => {
               <Textarea
                 className="h-[200px]"
                 placeholder="Type your message here"
+                required
               />
               {/* Button */}
               <Button size="md" className="max-w-40">

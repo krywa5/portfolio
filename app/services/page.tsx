@@ -15,31 +15,31 @@ type Service = {
 const services: Service[] = [
   {
     num: "01",
-    title: "Web Development",
+    title: "Frontend Development",
     description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore, magni recusandae doloribus dolor nemo ipsa numquam rem quod neque ullam.",
-    href: "/#",
+      "I create modern, responsive, and intuitive user interfaces using the latest frontend tools and technologies, ensuring a seamless user experience across different devices.",
+    href: "https://en.wikipedia.org/wiki/Front-end_web_development",
   },
   {
     num: "02",
-    title: "UI/UX Design",
+    title: "Fullstack Development",
     description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore, magni recusandae doloribus dolor nemo ipsa numquam rem quod neque ullam.",
-    href: "/#",
+      "I handle the complete development of web applications, integrating frontend and backend, enabling the delivery of fully functional, efficient solutions on both the visual and server sides.",
+    href: "https://aws.amazon.com/what-is/full-stack-development/",
   },
   {
     num: "03",
-    title: "Logo Design",
+    title: "SEO",
     description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore, magni recusandae doloribus dolor nemo ipsa numquam rem quod neque ullam.",
-    href: "/#",
+      "I optimize websites for search engines, enhancing visibility, rankings, and driving more organic traffic, leading to improved business outcomes and increased user conversions.",
+    href: "https://en.wikipedia.org/wiki/Search_engine_optimization",
   },
   {
     num: "04",
-    title: "SEO",
+    title: "Logo",
     description:
-      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore, magni recusandae doloribus dolor nemo ipsa numquam rem quod neque ullam.",
-    href: "/#",
+      "I design unique and professional logos that not only stand out visually but also accurately reflect the brand's identity and values, helping to build its recognition.",
+    href: "https://www.bigcommerce.com/glossary/what-is-a-logo-design/",
   },
 ];
 
@@ -59,7 +59,6 @@ const Services: FunctionComponent = () => {
           }}
           className="grid grid-cols-1 md:grid-cols-2 gap-[60px]"
         >
-          {/* TODO: create component for Service */}
           {services.map((service, index) => (
             <div
               key={index}
@@ -72,6 +71,8 @@ const Services: FunctionComponent = () => {
                 <Link
                   href={service.href}
                   className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:-rotate-45"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {<BsArrowDownRight className="text-primary text-3xl" />}
                 </Link>

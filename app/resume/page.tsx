@@ -7,8 +7,10 @@ import {
   FaReact,
   FaFigma,
   FaNodeJs,
+  FaGitAlt,
 } from "react-icons/fa";
-import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
+import { SiMui, SiStorybook, SiNextdotjs, SiReactquery } from "react-icons/si";
+import { BiLogoTypescript } from "react-icons/bi";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Tooltip,
@@ -18,52 +20,6 @@ import {
 } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
-
-type About = {
-  title: string;
-  description: string;
-  info: { fieldName: string; fieldValue: string }[];
-};
-
-const about: About = {
-  title: "About me",
-  description:
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit natus voluptate officiis maiores illum est.",
-  info: [
-    {
-      fieldName: "Name",
-      fieldValue: "Krystian Wasilewski",
-    },
-    {
-      fieldName: "Phone",
-      fieldValue: "(+48) 889 487 298",
-    },
-    {
-      fieldName: "Experience",
-      fieldValue: "12+ Years",
-    },
-    {
-      fieldName: "Skype",
-      fieldValue: "blocker92",
-    },
-    {
-      fieldName: "Nationality",
-      fieldValue: "Polish",
-    },
-    {
-      fieldName: "Email",
-      fieldValue: "krystian.wasilewski@o2.pl",
-    },
-    {
-      fieldName: "Freelance",
-      fieldValue: "Available",
-    },
-    {
-      fieldName: "Languages",
-      fieldValue: "English, Polish",
-    },
-  ],
-};
 
 type Experience = {
   icon: string;
@@ -76,17 +32,17 @@ const experience: Experience = {
   icon: "/assets/resume/badge.svg",
   title: "My experience",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit natus voluptate officiis maiores illum est.",
+    "Since 2019, my profession is coding beautiful web applications, and I still plan to do it for many years to come, as it is not only my job, but also a passion.",
   items: [
     {
       company: "Fabrity",
       duration: "2023 - present",
-      position: "Senior React developer",
+      position: "Senior React Developer",
     },
     {
       company: "BytesPack",
       duration: "2021 - 2023",
-      position: "React developer",
+      position: "React Developer",
     },
     {
       company: "LionHead",
@@ -100,44 +56,49 @@ type Education = {
   icon: string;
   title: string;
   description: string;
-  items: { institution: string; degree: string; duration: string }[];
+  items: { institution: string; course: string; duration: string }[];
 };
 
 const education: Education = {
   icon: "/assets/resume/cap.svg",
   title: "My education",
   description:
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit natus voluptate officiis maiores illum est.",
+    "I am a civil engineer, but nevertheless, I decided to change the industry. I was able to do this effectively thanks to a large number of professional courses. List below contains only the most important ones.",
   items: [
     {
-      institution: "Online Course Platform",
-      degree: "Full Stack WebDeveloper",
+      institution: "Matt Pocock",
+      course: "Advanced React with TypeScript",
+      duration: "2024",
+    },
+    {
+      institution: "Matt Pocock",
+      course: "Professional TypeScript Training",
       duration: "2023",
     },
     {
-      institution: "Codecademy",
-      degree: "Front-end Track",
+      institution: "Academind",
+      course: "Next.js 15 & React",
+      duration: "2023",
+    },
+    {
+      institution: "devstyle.pl",
+      course: "Architektura Na Froncie",
       duration: "2022",
     },
     {
-      institution: "Online Course",
-      degree: "Programming Course",
+      institution: "Academind",
+      course: "React - The Complete Guide",
       duration: "2021",
     },
     {
-      institution: "Tech Institute",
-      degree: "Certified Web Developer",
+      institution: "Coders lab",
+      course: "JavaScript Developer: React",
       duration: "2019",
     },
     {
-      institution: "Design School",
-      degree: "Diploma in Graphic design",
-      duration: "2016 - 2018",
-    },
-    {
-      institution: "Community Collage",
-      degree: "Associate Degree in Computer Science",
-      duration: "2014 - 2016",
+      institution: "Warsaw University of Technology",
+      course: "Civil Engineer (degree)",
+      duration: "2013 - 2018",
     },
   ],
 };
@@ -150,7 +111,7 @@ type Skills = {
 const skills: Skills = {
   title: "My skills",
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam omnis libero deserunt, quaerat nostrum saepe illum totam accusantium distinctio explicabo.",
+    "Web development requires to be up to date with the latest technologies. Here is the list of ones that I've mastered.",
   skillList: [
     {
       icon: <FaHtml5 />,
@@ -173,12 +134,28 @@ const skills: Skills = {
       name: "next.js",
     },
     {
-      icon: <SiTailwindcss />,
-      name: "tailwind.css",
+      icon: <BiLogoTypescript />,
+      name: "typescript",
+    },
+    {
+      icon: <SiMui />,
+      name: "MUI",
     },
     {
       icon: <FaNodeJs />,
       name: "node.js",
+    },
+    {
+      icon: <SiReactquery />,
+      name: "tanstack query",
+    },
+    {
+      icon: <SiStorybook />,
+      name: "storybook",
+    },
+    {
+      icon: <FaGitAlt />,
+      name: "git",
     },
     {
       icon: <FaFigma />,
@@ -187,7 +164,51 @@ const skills: Skills = {
   ],
 };
 
-// TODO_KW: Move tabs content to separate components
+type About = {
+  title: string;
+  description: string;
+  info: { fieldName: string; fieldValue: string }[];
+};
+
+const about: About = {
+  title: "About me",
+  description:
+    "Hi, I'm Krystian and since 2019 I have been professionally developing web applications. I am convinced that the key to success is transforming complex requirements into a simple, elegant form that brings value to both users and business. I am enthusiastic and eager to support the implementation of projects that will benefit and satisfy both you and the users of your applications.",
+  info: [
+    {
+      fieldName: "Name",
+      fieldValue: "Krystian Wasilewski",
+    },
+    {
+      fieldName: "Phone",
+      fieldValue: "(+48) 889 487 298",
+    },
+    {
+      fieldName: "Experience",
+      fieldValue: "5+ Years",
+    },
+    {
+      fieldName: "LinkedIn",
+      fieldValue: "krystianwasilewski",
+    },
+    {
+      fieldName: "Nationality",
+      fieldValue: "Polish",
+    },
+    {
+      fieldName: "Email",
+      fieldValue: "krystian.wasilewski@o2.pl",
+    },
+    {
+      fieldName: "Freelance",
+      fieldValue: "Available",
+    },
+    {
+      fieldName: "Languages",
+      fieldValue: "English, Polish",
+    },
+  ],
+};
 
 const Resume: FunctionComponent = () => {
   return (
@@ -256,7 +277,7 @@ const Resume: FunctionComponent = () => {
                       >
                         <span className="text-accent">{item.duration}</span>
                         <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">
-                          {item.degree}
+                          {item.course}
                         </h3>
                         <div className="flex items-center gap-3">
                           {/* dot */}

@@ -11,7 +11,7 @@ const Header: FunctionComponent = () => {
         {/* logo */}
         <Link href="/">
           <h1 className="text-4xl font-semibold">
-            Krystian <span className="text-accent">.</span>
+            Krystian<span className="text-accent">.</span>
           </h1>
         </Link>
 

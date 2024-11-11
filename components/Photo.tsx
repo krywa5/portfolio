@@ -13,7 +13,7 @@ const Photo: FunctionComponent = () => {
           opacity: 1,
           transition: { delay: 3, duration: 0.4, ease: "easeInOut" },
         }}
-        className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute"
+        className="w-[298px] h-[298px] xl:w-[440px] xl:h-[440px] mix-blend-lighten absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
       >
         <Image
           src="/assets/photo.png"
@@ -21,7 +21,7 @@ const Photo: FunctionComponent = () => {
           quality={100}
           fill
           alt="Photo of me"
-          className="object-contain"
+          className="object-contain saturate-50"
         />
       </motion.div>
 

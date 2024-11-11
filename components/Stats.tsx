@@ -8,17 +8,18 @@ type Stat = {
   text: string;
 };
 
+const START_YEAR_OF_MY_CAREER = 2019;
 const stats: Stat[] = [
   {
-    num: 12,
+    num: new Date().getFullYear() - START_YEAR_OF_MY_CAREER,
     text: "Years of experience",
   },
   {
-    num: 26,
+    num: 12,
     text: "Projects completed",
   },
   {
-    num: 8,
+    num: 10,
     text: "Technologies mastered",
   },
   {

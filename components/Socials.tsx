@@ -1,6 +1,8 @@
 import { FunctionComponent } from "react";
 import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FiPhone } from "react-icons/fi";
+import { MdAlternateEmail } from "react-icons/md";
 
 type Social = {
   icon: JSX.Element;
@@ -15,6 +17,14 @@ const socials: Social[] = [
   {
     icon: <FaLinkedin />,
     path: "https://www.linkedin.com/in/krystianwasilewski/",
+  },
+  {
+    icon: <MdAlternateEmail />,
+    path: "mailto:krystian.wasilewski@o2.pl",
+  },
+  {
+    icon: <FiPhone />,
+    path: "tel:889487298",
   },
 ];
 
