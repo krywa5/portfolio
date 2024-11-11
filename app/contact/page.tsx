@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/select";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
 
 type Info = {
   title: string;
@@ -41,6 +42,16 @@ const info: Info[] = [
 ];
 
 const Contact: FunctionComponent = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ContactFormValues>();
+
+  const onSubmit = (data: ContactFormValues) => {
+    console.log(data);
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -54,7 +65,10 @@ const Contact: FunctionComponent = () => {
         <div className="flex flex-col xl:flex-row gap-[30px]">
           {/* form */}
           <div className="xl:w-[54%] order-2 xl:order-none">
-            <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
+            <form
+              className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <h3 className="text-4xl text-accent">
                 Let&apos;s work together!
               </h3>
@@ -64,34 +78,60 @@ const Contact: FunctionComponent = () => {
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="firstname" placeholder="Firstname" />
-                <Input type="lastname" placeholder="Lastname" />
-                <Input type="email" placeholder="Email address" required />
-                <Input type="phone" placeholder="Phone number" />
+                <Input
+                  {...register("firstName", {
+                    required: "Firstname is required.",
+                  })}
+                  type="firstname"
+                  placeholder="Firstname"
+                  error={errors?.firstName?.message}
+                />
+                <Input
+                  {...register("lastName", {
+                    required: "Lastname is required.",
+                  })}
+                  type="lastname"
+                  placeholder="Lastname"
+                  error={errors?.lastName?.message}
+                />
+                <Input
+                  {...register("email", { required: "Email is required." })}
+                  type="email"
+                  placeholder="Email address"
+                  error={errors?.email?.message}
+                />
+                <Input
+                  {...register("phone")}
+                  type="phone"
+                  placeholder="Phone number"
+                  error={errors?.phone?.message}
+                />
               </div>
-              {/* select - TODO: Do I need that? */}
-              <Select>
+              <Select {...register("service")}>
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Select a service</SelectLabel>
-                    <SelectItem value="frontend">
+                    <SelectItem value={Services.Frontend}>
                       Frontend development
                     </SelectItem>
-                    <SelectItem value="fullstack">
+                    <SelectItem value={Services.Fullstack}>
                       Fullstack development
                     </SelectItem>
-                    <SelectItem value="logo-design">Logo Design</SelectItem>
+                    <SelectItem value={Services.LogoDesign}>
+                      Logo Design
+                    </SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
               {/* textarea */}
               <Textarea
+                {...register("message", { required: "Message is required." })}
                 className="h-[200px]"
                 placeholder="Type your message here"
-                required
+                error={errors?.message?.message}
               />
               {/* Button */}
               <Button size="md" className="max-w-40">
@@ -119,6 +159,21 @@ const Contact: FunctionComponent = () => {
       </div>
     </motion.section>
   );
+};
+
+enum Services {
+  Frontend = "frontend",
+  Fullstack = "fullstack",
+  LogoDesign = "logo-design",
+}
+
+type ContactFormValues = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone?: string;
+  service?: Services;
+  message: string;
 };
 
 export default Contact;
