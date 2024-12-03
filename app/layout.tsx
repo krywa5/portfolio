@@ -6,6 +6,7 @@ import "swiper/css";
 import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
+import * as Toast from "@radix-ui/react-toast";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin-ext"],
@@ -26,9 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${jetbrainsMono.variable} antialiased`}>
-        <Header />
-        <StairTransition />
-        <PageTransition>{children}</PageTransition>
+        <Toast.Provider swipeDirection="right">
+          <Header />
+          <StairTransition />
+          <PageTransition>{children}</PageTransition>
+        </Toast.Provider>
       </body>
     </html>
   );

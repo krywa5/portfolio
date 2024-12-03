@@ -1,6 +1,6 @@
 "use client";
 
-import { FunctionComponent } from "react";
+import { FunctionComponent, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -16,6 +16,11 @@ import {
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
+import { Services } from "@/shared/enums/Services";
+import { ContactFormValues } from "@/shared/forms/ContactFormValues";
+import ReCAPTCHA from "react-google-recaptcha";
+import { ToastContent } from "@/components/ui/toast";
+import ErrorMessage from "@/components/ErrorMessage";
 
 type Info = {
   title: string;
@@ -46,10 +51,36 @@ const Contact: FunctionComponent = () => {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
+    reset,
   } = useForm<ContactFormValues>();
+  const recaptcha = useRef<ReCAPTCHA>(null);
+  const [isSuccessToastOpen, setIsSuccessToastOpen] = useState(true);
+  const [isReCaptchaError, setIsReCaptchaError] = useState(false);
 
-  const onSubmit = (data: ContactFormValues) => {
-    console.log(data);
+  const onSubmit = async (data: ContactFormValues) => {
+    const captchaValue = recaptcha?.current?.getValue();
+    if (captchaValue) {
+      setIsSuccessToastOpen(true);
+      try {
+        const response = await fetch("/api/email", {
+          method: "POST",
+          headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+        if (response.ok) {
+          setIsSuccessToastOpen(true);
+          reset();
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      setIsReCaptchaError(true);
+    }
   };
 
   return (
@@ -59,7 +90,7 @@ const Contact: FunctionComponent = () => {
         opacity: 1,
         transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
       }}
-      className="py-6"
+      className="py-6 overflow-hidden"
     >
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[30px]">
@@ -107,7 +138,12 @@ const Contact: FunctionComponent = () => {
                   error={errors?.phone?.message}
                 />
               </div>
-              <Select {...register("service")}>
+              <Select
+                {...register("service")}
+                onValueChange={(value) =>
+                  setValue("service", value as Services)
+                }
+              >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
@@ -133,10 +169,22 @@ const Contact: FunctionComponent = () => {
                 placeholder="Type your message here"
                 error={errors?.message?.message}
               />
-              {/* Button */}
-              <Button size="md" className="max-w-40">
-                Send message
-              </Button>
+              {/* footer */}
+              <div className="flex gap-5 justify-between flex-wrap">
+                <div className="relative">
+                  <ReCAPTCHA
+                    ref={recaptcha}
+                    sitekey={process.env.NEXT_PUBLIC_REACT_APP_SITE_KEY!}
+                    onChange={(token) => setIsReCaptchaError(!token)}
+                  />
+                  {isReCaptchaError && (
+                    <ErrorMessage message="reCAPTCHA is required." />
+                  )}
+                </div>
+                <Button size="md" className="max-w-40">
+                  Send message
+                </Button>
+              </div>
             </form>
           </div>
           {/* info */}
@@ -157,23 +205,14 @@ const Contact: FunctionComponent = () => {
           </div>
         </div>
       </div>
+      <ToastContent
+        isOpen={isSuccessToastOpen}
+        setIsOpen={setIsSuccessToastOpen}
+        title="Email successfully sent!"
+        description="I will respond as soon as possible. Thank you."
+      />
     </motion.section>
   );
-};
-
-enum Services {
-  Frontend = "frontend",
-  Fullstack = "fullstack",
-  LogoDesign = "logo-design",
-}
-
-type ContactFormValues = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone?: string;
-  service?: Services;
-  message: string;
 };
 
 export default Contact;
