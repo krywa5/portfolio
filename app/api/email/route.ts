@@ -1,6 +1,7 @@
 import { sendContactMail } from "@/libs/sendContactMail";
 import { NextResponse } from "next/server";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function POST(request: any) {
   try {
     const req = await request.json();
