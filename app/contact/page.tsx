@@ -21,6 +21,7 @@ import { ContactFormValues } from "@/shared/forms/ContactFormValues";
 import ReCAPTCHA from "react-google-recaptcha";
 import { ToastContent } from "@/components/ui/toast";
 import ErrorMessage from "@/components/ErrorMessage";
+import FormSuccessMessage from "@/components/FormSuccessMessage";
 
 type Info = {
   title: string;
@@ -55,13 +56,22 @@ const Contact: FunctionComponent = () => {
     reset,
   } = useForm<ContactFormValues>();
   const recaptcha = useRef<ReCAPTCHA>(null);
-  const [isSuccessToastOpen, setIsSuccessToastOpen] = useState(true);
+  const [isErrorToastOpen, setIsErrorToastOpen] = useState(false);
   const [isReCaptchaError, setIsReCaptchaError] = useState(false);
+  const [isSuccessMessageOpen, setIsSuccessMessageOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const resetForm = () => {
+    reset();
+    recaptcha?.current?.reset();
+  };
 
   const onSubmit = async (data: ContactFormValues) => {
     const captchaValue = recaptcha?.current?.getValue();
     if (captchaValue) {
-      setIsSuccessToastOpen(true);
+      setIsReCaptchaError(false);
+      setIsSubmitting(true);
+
       try {
         const response = await fetch("/api/email", {
           method: "POST",
@@ -72,15 +82,25 @@ const Contact: FunctionComponent = () => {
           body: JSON.stringify(data),
         });
         if (response.ok) {
-          setIsSuccessToastOpen(true);
-          reset();
+          setIsErrorToastOpen(false);
+          setIsSuccessMessageOpen(true);
+        } else {
+          setIsErrorToastOpen(true);
         }
       } catch (error) {
         console.log(error);
+        setIsErrorToastOpen(true);
+      } finally {
+        setIsSubmitting(false);
       }
     } else {
       setIsReCaptchaError(true);
     }
+  };
+
+  const onFormClose = () => {
+    resetForm();
+    setIsSuccessMessageOpen(false);
   };
 
   return (
@@ -95,9 +115,9 @@ const Contact: FunctionComponent = () => {
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[30px]">
           {/* form */}
-          <div className="xl:w-[54%] order-2 xl:order-none">
+          <div className="xl:w-[54%] order-2 xl:order-none relative rounded-xl overflow-hidden">
             <form
-              className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
+              className="flex flex-col gap-6 p-10 bg-[#27272c]"
               onSubmit={handleSubmit(onSubmit)}
             >
               <h3 className="text-4xl text-accent">
@@ -181,11 +201,18 @@ const Contact: FunctionComponent = () => {
                     <ErrorMessage message="reCAPTCHA is required." />
                   )}
                 </div>
-                <Button size="md" className="max-w-40">
-                  Send message
+                <Button size="md" className="max-w-40" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : "Send message"}
                 </Button>
               </div>
             </form>
+            {isSuccessMessageOpen && (
+              <FormSuccessMessage
+                title="Email successfully sent!"
+                description="I will respond as soon as possible. Thank you."
+                onClose={onFormClose}
+              />
+            )}
           </div>
           {/* info */}
           <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
@@ -206,10 +233,11 @@ const Contact: FunctionComponent = () => {
         </div>
       </div>
       <ToastContent
-        isOpen={isSuccessToastOpen}
-        setIsOpen={setIsSuccessToastOpen}
-        title="Email successfully sent!"
-        description="I will respond as soon as possible. Thank you."
+        isOpen={isErrorToastOpen}
+        setIsOpen={setIsErrorToastOpen}
+        title="Error :("
+        description="Sorry, we are doing the best we can. Please try again later."
+        type="error"
       />
     </motion.section>
   );
