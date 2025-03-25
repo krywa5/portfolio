@@ -19,6 +19,7 @@ export const sendContactMail = async (data: ContactFormValues) => {
       Ktoś próbuje się z Tobą skontaktować!
 
       Dane:
+      
       Imię: ${data.firstName}
       Nazwisko: ${data.lastName}
       Email: ${data.email}
@@ -29,12 +30,15 @@ export const sendContactMail = async (data: ContactFormValues) => {
     `,
   };
 
-  transporter.sendMail(mailOptions, (error) => {
-    if (error) {
-      throw new Error("Error while sending an email.");
-    } else {
-      console.log("Your Email Sent.");
-      return true;
-    }
+  await new Promise((resolve, reject) => {
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        reject(error);
+        throw new Error("Error while sending an email.");
+      } else {
+        console.log("Your Email Sent.");
+        resolve(info);
+      }
+    });
   });
 };
