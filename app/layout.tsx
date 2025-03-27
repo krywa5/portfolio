@@ -15,7 +15,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio - Krystian Wasilewski",
+  title: "WWWasilewski - Web development",
   description: "A portfolio page for web developer - Krystian Wasilewski.",
 };
 

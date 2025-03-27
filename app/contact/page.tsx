@@ -160,9 +160,7 @@ const Contact: FunctionComponent = () => {
               </div>
               <Select
                 {...register("service")}
-                onValueChange={(value) =>
-                  setValue("service", value as Services)
-                }
+                onValueChange={(value: Services) => setValue("service", value)}
               >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select a service" />
@@ -224,7 +222,7 @@ const Contact: FunctionComponent = () => {
                   </div>
                   <div className="flex-1">
                     <p className="text-white/60">{item.title}</p>
-                    <p className="text-xl">{item.description}</p>
+                    <p className="text-lg md:text-xl">{item.description}</p>
                   </div>
                 </li>
               ))}

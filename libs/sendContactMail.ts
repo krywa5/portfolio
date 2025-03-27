@@ -16,18 +16,19 @@ export const sendContactMail = async (data: ContactFormValues) => {
     to: process.env.NODEMAILER_EMAIL,
     subject: "Formularz kontaktowy Portfolio!",
     text: `
-      Ktoś próbuje się z Tobą skontaktować!
+Ktoś próbuje się z Tobą skontaktować!
 
-      Dane:
+Dane:
       
-      Imię: ${data.firstName}
-      Nazwisko: ${data.lastName}
-      Email: ${data.email}
-      Telefon: ${data.phone}
-      Serwis: ${data.service}
+Imię: ${data.firstName}
+Nazwisko: ${data.lastName}
+Email: ${data.email}
+Telefon: ${data.phone}
+Serwis: ${data.service}
 
-      Wiadomość: ${data.message}
-    `,
+Wiadomość: 
+${data.message}
+`,
   };
 
   await new Promise((resolve, reject) => {

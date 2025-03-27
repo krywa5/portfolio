@@ -1,7 +1,12 @@
 "use client";
 import { FunctionComponent } from "react";
 import { usePathname } from "next/navigation";
-import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetClose,
+} from "@/components/ui/sheet";
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
 import { navLinks } from "@/shared/navLinks";
@@ -16,24 +21,27 @@ const MobileNav: FunctionComponent = () => {
       </SheetTrigger>
       <SheetContent className="flex flex-col">
         {/* logo */}
-        <div className="mt-32 mb-40 text-center text-2xl">
+        <div className="mt-auto mb-auto text-center text-2xl">
           <Link href="/">
-            <h1 className="text-4xl font-semibold">
-              Krystian<span className="text-accent">.</span>
-            </h1>
+            <SheetClose>
+              <h1 className="text-4xl font-semibold">
+                WWWasilewski<span className="text-accent">.</span>
+              </h1>
+            </SheetClose>
           </Link>
         </div>
         {/* nav */}
         <nav className="flex flex-col justify-center items-center gap-8">
           {navLinks.map((link, index) => (
-            <Link
-              href={link.path}
-              key={index}
-              className={`${
-                link.path === pathname && "text-accent border-b-2 border-accent"
-              } text-xl capitalize hover:text-accent transition-all`}
-            >
-              {link.name}
+            <Link href={link.path} key={index}>
+              <SheetClose
+                className={`${
+                  link.path === pathname &&
+                  "text-accent border-b-2 border-accent"
+                } text-xl capitalize hover:text-accent transition-all`}
+              >
+                {link.name}
+              </SheetClose>
             </Link>
           ))}
         </nav>

@@ -14,8 +14,8 @@ const FormSuccessMessage: FunctionComponent<FormSuccessMessageProps> = ({
 }) => {
   return (
     <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center backdrop-blur-md bg-[#00000044] animate-in fade-in-10">
-      <div className="flex flex-col items-center gap-8">
-        <h2 className="leading-3 text-accent text-2xl">{title}</h2>
+      <div className="flex flex-col items-center gap-8 bg-slate-700 p-8 rounded-3xl">
+        <h2 className="leading-7 text-accent text-2xl text-center">{title}</h2>
         <p className="text-sm">{description}</p>
         <Button variant="outline" onClick={onClose}>
           Return
