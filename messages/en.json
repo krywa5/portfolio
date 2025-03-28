@@ -1,0 +1,6 @@
+{
+  "HomePage": {
+    "hello-im": "Hello I'm <me>{myName}</me>",
+    "short-bio": "I specialize in creating elegant application interfaces and have skills in various frontend technologies."
+  }
+}

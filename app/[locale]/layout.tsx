@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "../../i18n/routing";
 import "./globals.css";
 import "swiper/css";
 
@@ -19,19 +22,29 @@ export const metadata: Metadata = {
   description: "A portfolio page for web developer - Krystian Wasilewski.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
+  // Ensure that the incoming `locale` is valid
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={`${jetbrainsMono.variable} antialiased`}>
-        <Toast.Provider swipeDirection="right">
-          <Header />
-          <StairTransition />
-          <PageTransition>{children}</PageTransition>
-        </Toast.Provider>
+        <NextIntlClientProvider>
+          <Toast.Provider swipeDirection="right">
+            <Header />
+            <StairTransition />
+            <PageTransition>{children}</PageTransition>
+          </Toast.Provider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
