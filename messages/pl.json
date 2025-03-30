@@ -2,5 +2,11 @@
   "HomePage": {
     "hello-im": "Cześć, nazywam się <me>{myName}</me>",
     "short-bio": "Specjalizuję się w tworzeniu eleganckich interfejsów aplikacji i posiadam umiejętności w różnych technologiach frontendowych."
+  },
+  "Services": {
+    "frontend-desc": "Tworzę nowoczesne, responsywne i intuicyjne interfejsy użytkownika przy użyciu najnowszych narzędzi i technologii frontendowych, zapewniając płynną obsługę na różnych urządzeniach.",
+    "fullstack-desc": "Zajmuję się kompleksowym tworzeniem aplikacji internetowych, integrując frontend i backend, umożliwiając dostarczanie w pełni funkcjonalnych, wydajnych rozwiązań zarówno po stronie wizualnej, jak i serwerowej.",
+    "seo-desc": "Optymalizuję witryny pod kątem wyszukiwarek, poprawiając widoczność, rankingi i zwiększając ruch organiczny, co prowadzi do lepszych wyników biznesowych i zwiększonej konwersji użytkowników.",
+    "logo-desc": "Projektuję unikalne i profesjonalne logotypy, które nie tylko wyróżniają się wizualnie, ale także dokładnie odzwierciedlają tożsamość i wartości marki, pomagając budować jej rozpoznawalność."
   }
 }

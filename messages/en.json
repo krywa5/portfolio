@@ -2,5 +2,11 @@
   "HomePage": {
     "hello-im": "Hello I'm <me>{myName}</me>",
     "short-bio": "I specialize in creating elegant application interfaces and have skills in various frontend technologies."
+  },
+  "Services": {
+    "frontend-desc": "I create modern, responsive, and intuitive user interfaces using the latest frontend tools and technologies, ensuring a seamless user experience across different devices.",
+    "fullstack-desc": "I handle the complete development of web applications, integrating frontend and backend, enabling the delivery of fully functional, efficient solutions on both the visual and server sides.",
+    "seo-desc": "I optimize websites for search engines, enhancing visibility, rankings, and driving more organic traffic, leading to improved business outcomes and increased user conversions.",
+    "logo-desc": "I design unique and professional logos that not only stand out visually but also accurately reflect the brand's identity and values, helping to build its recognition."
   }
 }
