@@ -4,22 +4,46 @@ import Image from "next/image";
 import { FunctionComponent } from "react";
 import { useParams } from "next/navigation";
 import { usePathname, useRouter } from "@/i18n/navigation";
-import { TooltipProvider } from "@radix-ui/react-tooltip";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import { Locales, localesArray } from "@/shared/enums/Locales";
 
 interface LocaleSwitcherProps {
   className?: string;
+  variant?: "default" | "mobile";
 }
 
 const LocaleSwitcher: FunctionComponent<LocaleSwitcherProps> = ({
   className,
+  variant = "default",
 }) => {
-  // const t = useTranslations("LocaleSwitcher");
+  const isMobile = variant === "mobile";
+
+  return (
+    <div className={className}>
+      <ul className={`relative flex items-center gap-${isMobile ? "8" : "4"}`}>
+        {localesArray.map((locale) => (
+          <LocaleFlagButton locale={locale} key={locale} variant={variant} />
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+interface LocaleFlagButtonProps {
+  locale: Locales;
+  variant: "default" | "mobile";
+}
+
+const LocaleFlagButton: FunctionComponent<LocaleFlagButtonProps> = ({
+  locale,
+  variant,
+}) => {
   const router = useRouter();
   const params = useParams();
   const pathname = usePathname();
+  const isMobile = variant === "mobile";
+  const sizeClassName = isMobile ? "w-[30px] h-[18px]" : "w-[20px] h-[12px]";
 
-  const handleFlagClick = (locale: string) => {
+  const handleFlagClick = (locale: Locales) => {
     router.replace(
       // @ts-expect-error -- TypeScript will validate that only known `params`
       // are used in combination with a given `pathname`. Since the two will
@@ -30,49 +54,15 @@ const LocaleSwitcher: FunctionComponent<LocaleSwitcherProps> = ({
   };
 
   return (
-    <div className={className}>
-      <ul className="relative flex items-center gap-3">
-        {/* TODO: zrobić z tego komponent i zrobić array z localesów i użyc jako typ w handleFlagClick */}
-        <li className="w-[20px] h-[12px] relative">
-          <TooltipProvider delayDuration={500}>
-            <Tooltip>
-              <TooltipTrigger>
-                <Image
-                  onClick={() => handleFlagClick("pl")}
-                  src="/assets/pl-flag.jpg"
-                  fill
-                  alt="Polish language"
-                  className="cursor-pointer"
-                />
-              </TooltipTrigger>
-              <TooltipContent>
-                {/* TODO: zmniejszyć font-size */}
-                <span>Język polski</span>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-        </li>
-        <li className="w-[20px] h-[12px] relative">
-          <Image
-            onClick={() => handleFlagClick("en")}
-            src="/assets/en-flag.jpg"
-            fill
-            alt="English language"
-            className="cursor-pointer"
-          />
-        </li>
-      </ul>
-    </div>
-
-    // <LocaleSwitcherSelect defaultValue={locale} label={t("label")}>
-    //   {routing.locales.map((cur) => (
-    //     <option key={cur} value={cur}>
-    //       {t("locale", {
-    //         locale: cur,
-    //       })}
-    //     </option>
-    //   ))}
-    // </LocaleSwitcherSelect>
+    <li className={`${sizeClassName} relative`}>
+      <Image
+        onClick={() => handleFlagClick(locale)}
+        src={`/assets/${locale}-flag.jpg`}
+        fill
+        alt="Polish language"
+        className="cursor-pointer"
+      />
+    </li>
   );
 };
 

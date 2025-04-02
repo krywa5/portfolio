@@ -18,25 +18,25 @@ const Services: FunctionComponent = () => {
   const services: Service[] = [
     {
       num: "01",
-      title: "Frontend Development",
+      title: t("frontend-development"),
       description: t("frontend-desc"),
       href: "https://en.wikipedia.org/wiki/Front-end_web_development",
     },
     {
       num: "02",
-      title: "Fullstack Development",
+      title: t("fullstack-development"),
       description: t("fullstack-desc"),
       href: "https://aws.amazon.com/what-is/full-stack-development/",
     },
     {
       num: "03",
-      title: "SEO",
+      title: t("seo"),
       description: t("seo-desc"),
       href: "https://en.wikipedia.org/wiki/Search_engine_optimization",
     },
     {
       num: "04",
-      title: "Logo",
+      title: t("logo"),
       description: t("logo-desc"),
       href: "https://www.bigcommerce.com/glossary/what-is-a-logo-design/",
     },

@@ -1,12 +1,68 @@
 {
   "HomePage": {
     "hello-im": "Hello I'm <me>{myName}</me>",
-    "short-bio": "I specialize in creating elegant application interfaces and have skills in various frontend technologies."
+    "short-bio": "I specialize in creating elegant application interfaces and modern fullstack websites.",
+    "my-position": "Senior Frontend Developer"
   },
   "Services": {
+    "frontend-development": "Frontend Development",
     "frontend-desc": "I create modern, responsive, and intuitive user interfaces using the latest frontend tools and technologies, ensuring a seamless user experience across different devices.",
+    "fullstack-development": "Fullstack Development",
     "fullstack-desc": "I handle the complete development of web applications, integrating frontend and backend, enabling the delivery of fully functional, efficient solutions on both the visual and server sides.",
+    "seo": "SEO",
     "seo-desc": "I optimize websites for search engines, enhancing visibility, rankings, and driving more organic traffic, leading to improved business outcomes and increased user conversions.",
+    "logo": "Logo",
     "logo-desc": "I design unique and professional logos that not only stand out visually but also accurately reflect the brand's identity and values, helping to build its recognition."
+  },
+  "Resume": {
+    "my-experience": "My experience",
+    "my-experience-desc": "Since 2019, my profession is coding beautiful web applications, and I still plan to do it for many years to come, as it is not only my job, but also a passion.",
+    "my-education": "My education",
+    "my-education-desc": "I am a civil engineer, but nevertheless, I decided to change the industry. I was able to do this effectively thanks to a large number of professional courses. List below contains only the most important ones.",
+    "my-skills": "My skills",
+    "my-skills-desc": "Web development requires to be up to date with the latest technologies. Here is the list of ones that I've mastered.",
+    "about-me": "About me",
+    "about-me-desc": "Hi, I'm Krystian and since 2019 I have been professionally developing web applications. I am convinced that the key to success is transforming complex requirements into a simple, elegant form that brings value to both users and business. I am enthusiastic and eager to support the implementation of projects that will benefit and satisfy both you and the users of your applications.",
+    "name": "Name",
+    "phone": "Phone",
+    "experience": "Experience",
+    "experience-value": "5+ Years",
+    "nationality": "Nationality",
+    "nationality-value": "Polish",
+    "email": "Email",
+    "freelance": "Freelance",
+    "freelance-value": "Available",
+    "languages": "Languages",
+    "languages-value": "English, Polish",
+    "education": "Education",
+    "skills": "Skills"
+  },
+  "Work": {
+    "forkify-desc": "Recipes search engine.",
+    "income-manager-desc": "A tool to convert foreign revenues into Polish zloty.",
+    "natours-desc": "The landing page is full of modern design and good-looking animations.",
+    "live-project": "Live project",
+    "github-repo": "Github repository"
+  },
+  "Contact": {
+    "phone": "Phone",
+    "phone-number": "Phone number",
+    "email": "Email",
+    "address": "Address",
+    "lets-work": "Let's work together",
+    "lets-work-desc": "I look forward to hearing from you - together, we can create something exceptional!",
+    "required": "{field} is required.",
+    "firstName": "Firstname",
+    "lastName": "Lastname",
+    "select-service": "Select a service",
+    "type-message": "Type your message here",
+    "message": "Message",
+    "reCAPTCHA": "reCAPTCHA",
+    "sending": "Sending",
+    "send-message": "Send message",
+    "email-sent": "Email successfully sent!",
+    "email-thanks": "I will respond as soon as possible. Thank you.",
+    "email-error": "Sorry, we are doing the best we can. Please try again later.",
+    "error": "Error"
   }
 }

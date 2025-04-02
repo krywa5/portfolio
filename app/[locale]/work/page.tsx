@@ -13,6 +13,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import WorkSliderButtons from "@/components/WorkSliderButtons";
+import { useTranslations } from "next-intl";
 
 type Project = {
   num: string;
@@ -25,45 +26,46 @@ type Project = {
   github: string;
 };
 
-const projects: Project[] = [
-  {
-    num: "01",
-    category: "frontend",
-    title: "Forkify",
-    description: "Recipes search engine.",
-    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
-    image: "/assets/work/thumb1.png",
-    live: "https://krywa5.github.io/forkify/",
-    github: "https://github.com/krywa5/forkify",
-  },
-  {
-    num: "02",
-    category: "frontend",
-    title: "Income manager",
-    description: "A tool to convert foreign revenues into Polish zloty.",
-    stack: [
-      { name: "React.js" },
-      { name: "Typescript" },
-      { name: "Material UI" },
-    ],
-    image: "/assets/work/thumb2.png",
-    live: "https://krywa5.github.io/income-manager",
-    github: "https://github.com/krywa5/income-manager",
-  },
-  {
-    num: "03",
-    category: "frontend",
-    title: "Natours",
-    description:
-      "The landing page is full of modern design and good-looking animations.",
-    stack: [{ name: "Html 5" }, { name: "SCSS" }, { name: "Javascript" }],
-    image: "/assets/work/thumb3.png",
-    live: "https://krywa5.github.io/natours/",
-    github: "https://github.com/krywa5/natours",
-  },
-];
-
 const Work: FunctionComponent = () => {
+  const t = useTranslations("Work");
+
+  const projects: Project[] = [
+    {
+      num: "01",
+      category: "frontend",
+      title: "Forkify",
+      description: t("forkify-desc"),
+      stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
+      image: "/assets/work/thumb1.png",
+      live: "https://krywa5.github.io/forkify/",
+      github: "https://github.com/krywa5/forkify",
+    },
+    {
+      num: "02",
+      category: "frontend",
+      title: "Income manager",
+      description: t("income-manager-desc"),
+      stack: [
+        { name: "React.js" },
+        { name: "Typescript" },
+        { name: "Material UI" },
+      ],
+      image: "/assets/work/thumb2.png",
+      live: "https://krywa5.github.io/income-manager",
+      github: "https://github.com/krywa5/income-manager",
+    },
+    {
+      num: "03",
+      category: "frontend",
+      title: "Natours",
+      description: t("natours-desc"),
+      stack: [{ name: "Html 5" }, { name: "SCSS" }, { name: "Javascript" }],
+      image: "/assets/work/thumb3.png",
+      live: "https://krywa5.github.io/natours/",
+      github: "https://github.com/krywa5/natours",
+    },
+  ];
+
   const [project, setProject] = useState<Project>(projects[0]);
 
   const handleSlideChange = (swiper: SwiperClass) => {
@@ -122,7 +124,7 @@ const Work: FunctionComponent = () => {
                         <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Live project</p>
+                        <p>{t("live-project")}</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -139,7 +141,7 @@ const Work: FunctionComponent = () => {
                         <BsGithub className="text-white text-3xl group-hover:text-accent" />
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Github repository</p>
+                        <p>{t("github-repo")}</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>

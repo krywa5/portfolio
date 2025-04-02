@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
 import { navLinks } from "@/shared/navLinks";
+import LocaleSwitcher from "./LocaleSwitcher";
 
 const MobileNav: FunctionComponent = () => {
   const pathname = usePathname();
@@ -44,6 +45,7 @@ const MobileNav: FunctionComponent = () => {
               </SheetClose>
             </Link>
           ))}
+          <LocaleSwitcher variant="mobile" className="mt-6" />
         </nav>
       </SheetContent>
     </Sheet>
