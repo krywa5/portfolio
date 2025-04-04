@@ -7,9 +7,11 @@ import { FunctionComponent } from "react";
 
 const Nav: FunctionComponent = () => {
   const pathname = usePathname();
+  const navLinksDesktop = navLinks.filter((link) => link.name !== "contact");
+
   return (
     <nav className="flex gap-8">
-      {navLinks.map((link, index) => (
+      {navLinksDesktop.map((link, index) => (
         <Link
           href={link.path}
           key={index}

@@ -1,34 +1,40 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { FunctionComponent } from "react";
 import CountUp from "react-countup";
 
 type Stat = {
   num: number;
   text: string;
+  suffix?: string;
 };
 
 const START_YEAR_OF_MY_CAREER = 2019;
-const stats: Stat[] = [
-  {
-    num: new Date().getFullYear() - START_YEAR_OF_MY_CAREER,
-    text: "Years of experience",
-  },
-  {
-    num: 12,
-    text: "Projects completed",
-  },
-  {
-    num: 10,
-    text: "Technologies mastered",
-  },
-  {
-    num: 500,
-    text: "Code commits",
-  },
-];
 
 const Stats: FunctionComponent = () => {
+  const t = useTranslations("Stats");
+
+  const stats: Stat[] = [
+    {
+      num: new Date().getFullYear() - START_YEAR_OF_MY_CAREER,
+      text: t("years-of-experience"),
+    },
+    {
+      num: 12,
+      text: t("projects-completed"),
+    },
+    {
+      num: 10,
+      text: t("technologies-mastered"),
+    },
+    {
+      num: 500,
+      suffix: "+",
+      text: t("code-commits"),
+    },
+  ];
+
   return (
     <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
       <div className="container mx-auto">
@@ -40,13 +46,16 @@ const Stats: FunctionComponent = () => {
             >
               <CountUp
                 end={item.num}
+                suffix={item.suffix}
                 duration={5}
                 delay={2}
                 className="text-4xl xl:text-6xl font-extrabold"
               />
               <span
                 className={`${
-                  item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
+                  item.text.length < 15
+                    ? "sm:max-w-[100px]"
+                    : "sm:max-w-[150px]"
                 } leading-snug text-white/80`}
               >
                 {item.text}

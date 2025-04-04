@@ -59,7 +59,7 @@ const LocaleFlagButton: FunctionComponent<LocaleFlagButtonProps> = ({
         onClick={() => handleFlagClick(locale)}
         src={`/assets/${locale}-flag.jpg`}
         fill
-        alt="Polish language"
+        alt={`${locale} flag`}
         className="cursor-pointer"
       />
     </li>

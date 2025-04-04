@@ -62,7 +62,28 @@
     "send-message": "Send message",
     "email-sent": "Email successfully sent!",
     "email-thanks": "I will respond as soon as possible. Thank you.",
-    "email-error": "Sorry, we are doing the best we can. Please try again later.",
-    "error": "Error"
+    "email-error": "Sorry, we are doing the best we can. Please try again later."
+  },
+  "Nav": {
+    "home": "Home",
+    "services": "Services",
+    "resume": "Resume",
+    "work": "Work",
+    "contact": "Contact"
+  },
+  "Stats": {
+    "years-of-experience": "Years of experience",
+    "projects-completed": "Projects completed",
+    "technologies-mastered": "Technologies mastered",
+    "code-commits": "Code commits"
+  },
+  "General": {
+    "close": "Close",
+    "download": "Download",
+    "error": "Error",
+    "return": "Return",
+    "present": "Present",
+    "thumbnail": "Thumbnail",
+    "photo-of-me": "Photo of me"
   }
 }

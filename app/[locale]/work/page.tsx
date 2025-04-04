@@ -28,6 +28,7 @@ type Project = {
 
 const Work: FunctionComponent = () => {
   const t = useTranslations("Work");
+  const tAll = useTranslations();
 
   const projects: Project[] = [
     {
@@ -167,7 +168,7 @@ const Work: FunctionComponent = () => {
                         src={project.image}
                         fill
                         className="object-cover"
-                        alt={`${project.title} thumbnail`}
+                        alt={`${project.title} ${tAll("General.thumbnail").toLowerCase()}`}
                       />
                     </div>
                   </div>

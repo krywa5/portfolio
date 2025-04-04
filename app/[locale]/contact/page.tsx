@@ -44,6 +44,7 @@ const Contact: FunctionComponent = () => {
   const [isSuccessMessageOpen, setIsSuccessMessageOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const t = useTranslations("Contact");
+  const tAll = useTranslations();
 
   const info: Info[] = [
     {
@@ -75,7 +76,7 @@ const Contact: FunctionComponent = () => {
       setIsSubmitting(true);
 
       try {
-        const response = await fetch("/api/email", {
+        const response = await fetch("/api/email34234", {
           method: "POST",
           headers: {
             Accept: "application/json, text/plain, */*",
@@ -236,7 +237,7 @@ const Contact: FunctionComponent = () => {
       <ToastContent
         isOpen={isErrorToastOpen}
         setIsOpen={setIsErrorToastOpen}
-        title={`${t("error")} :(`}
+        title={`${tAll("General.error")} :(`}
         description={t("email-error")}
         type="error"
       />

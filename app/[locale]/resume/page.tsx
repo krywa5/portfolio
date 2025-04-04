@@ -50,6 +50,7 @@ type About = {
 
 const Resume: FunctionComponent = () => {
   const t = useTranslations("Resume");
+  const tAll = useTranslations();
 
   const experience: Experience = {
     icon: "/assets/resume/badge.svg",
@@ -58,7 +59,7 @@ const Resume: FunctionComponent = () => {
     items: [
       {
         company: "Fabrity",
-        duration: "2023 - present",
+        duration: `2023 - ${tAll("General.present").toLowerCase()}`,
         position: "Senior React Developer",
       },
       {
