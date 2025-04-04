@@ -1,12 +1,89 @@
 {
   "HomePage": {
     "hello-im": "Cześć, nazywam się <me>{myName}</me>",
-    "short-bio": "Specjalizuję się w tworzeniu eleganckich interfejsów aplikacji oraz nowoczesnych stron internetowych."
+    "short-bio": "Specjalizuję się w tworzeniu eleganckich interfejsów aplikacji oraz nowoczesnych stron internetowych.",
+    "my-position": "Senior Frontend Developer"
   },
   "Services": {
+    "frontend-development": "Frontend Development",
     "frontend-desc": "Tworzę nowoczesne, responsywne i intuicyjne interfejsy użytkownika przy użyciu najnowszych narzędzi i technologii frontendowych, zapewniając płynną obsługę na różnych urządzeniach.",
+    "fullstack-development": "Fullstack Development",
     "fullstack-desc": "Zajmuję się kompleksowym tworzeniem aplikacji internetowych, integrując frontend i backend, umożliwiając dostarczanie w pełni funkcjonalnych, wydajnych rozwiązań zarówno po stronie wizualnej, jak i serwerowej.",
+    "seo": "SEO",
     "seo-desc": "Optymalizuję witryny pod kątem wyszukiwarek, poprawiając widoczność, rankingi i zwiększając ruch organiczny, co prowadzi do lepszych wyników biznesowych i zwiększonej konwersji użytkowników.",
+    "logo": "Logo",
     "logo-desc": "Projektuję unikalne i profesjonalne logotypy, które nie tylko wyróżniają się wizualnie, ale także dokładnie odzwierciedlają tożsamość i wartości marki, pomagając budować jej rozpoznawalność."
+  },
+  "Resume": {
+    "my-experience": "Moje doświadczenie",
+    "my-experience-desc": "Od 2019 roku profesjonalnie zajmuję się tworzeniem nowoczesnych aplikacji internetowych i nadal planuję to robić przez wiele lat, ponieważ jest to nie tylko moja praca, ale także pasja.",
+    "my-education": "Moja edukacja",
+    "my-education-desc": "Z wykształcenia jestem inżynierem budownictwa, ale mimo to postanowiłem zmienić branżę. Udało mi się to dzięki licznym kursom zawodowym. Poniższa lista zawiera tylko te najważniejsze.",
+    "my-skills": "Moje umiejętności",
+    "my-skills-desc": "Tworzenie stron internetowych wymaga bycia na bieżąco z najnowszymi technologiami. Oto lista tych, które opanowałem.",
+    "about-me": "O mnie",
+    "about-me-desc": "Cześć, jestem Krystian i od 2019 roku zawodowo zajmuję się tworzeniem aplikacji webowych. Jestem przekonany, że kluczem do sukcesu jest przekształcenie złożonych wymagań w prostą, elegancką formę, która przynosi wartość zarówno użytkownikom, jak i biznesowi. Z entuzjazmem i zapałem wspieram realizację projektów, które przyniosą korzyści i zadowolenie zarówno Tobie, jak i użytkownikom Twoich aplikacji.",
+    "name": "Imię i nazwisko",
+    "phone": "Telefon",
+    "experience": "Doświadczenie",
+    "experience-value": "{years}+ lat",
+    "nationality": "Narodowość",
+    "nationality-value": "Polska",
+    "email": "Email",
+    "freelance": "Status",
+    "freelance-value": "Dostępny",
+    "languages": "Języki",
+    "languages-value": "Polski, angielski",
+    "education": "Edukacja",
+    "skills": "Umiejętności"
+  },
+  "Work": {
+    "forkify-desc": "Aplikacja do wyszukiwania przepisów.",
+    "income-manager-desc": "Narzędzie do przeliczania zagranicznych przychodów.",
+    "natours-desc": "The landing page z nowoczesnym designem i przyjemnymi animacjami.",
+    "live-project": "Live demo",
+    "github-repo": "Repozytorium github"
+  },
+  "Contact": {
+    "phone": "Telefon",
+    "phone-number": "Nr telefonu",
+    "email": "Email",
+    "address": "Adres",
+    "lets-work": "Zapraszam do współpracy",
+    "lets-work-desc": "Czekam na wiadomość od Ciebie - razem możemy stworzyć coś wyjątkowego!",
+    "required": "Pole jest wymagane.",
+    "firstName": "Imię",
+    "lastName": "Nazwisko",
+    "select-service": "Wybierz usługę",
+    "type-message": "Wpisz swoją wiadomość",
+    "message": "Wiadomość",
+    "reCAPTCHA": "reCAPTCHA",
+    "sending": "Wysyłanie",
+    "send-message": "Wyślij",
+    "email-sent": "Email wysłany!",
+    "email-thanks": "Odpowiem najszybciej jak to możliwe. Dziękuję.",
+    "email-error": "Coś poszło nie tak. Spróbuj ponownie."
+  },
+  "Nav": {
+    "home": "Główna",
+    "services": "Usługi",
+    "resume": "Komptenecje",
+    "work": "Praca",
+    "contact": "Kontakt"
+  },
+  "Stats": {
+    "years-of-experience": "Lat doświadczenia",
+    "projects-completed": "Ukończonych projektów",
+    "technologies-mastered": "Opanowanych technologii",
+    "code-commits": "Commitów"
+  },
+  "General": {
+    "close": "Zamknij",
+    "download": "Pobierz",
+    "error": "Bład",
+    "return": "Wróć",
+    "present": "do teraz",
+    "thumbnail": "Miniaturka",
+    "photo-of-me": "Ja"
   }
 }

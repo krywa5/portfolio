@@ -21,6 +21,7 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { START_YEAR_OF_MY_CAREER } from "@/shared/constants";
 
 type Experience = {
   icon: string;
@@ -187,7 +188,9 @@ const Resume: FunctionComponent = () => {
       },
       {
         fieldName: t("experience"),
-        fieldValue: t("experience-value"),
+        fieldValue: t("experience-value", {
+          years: new Date().getFullYear() - START_YEAR_OF_MY_CAREER,
+        }),
       },
       {
         fieldName: "LinkedIn",

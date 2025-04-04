@@ -58,7 +58,7 @@ const SheetContent = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Content>,
   SheetContentProps
 >(({ side = "right", className, children, ...props }, ref) => {
-  const t = useTranslations("Sheet");
+  const t = useTranslations();
   return (
     <SheetPortal>
       <SheetOverlay />
@@ -70,7 +70,7 @@ const SheetContent = React.forwardRef<
         {children}
         <SheetPrimitive.Close className="absolute right-8 top-8 transition-opacity outline-none">
           <IoMdClose className="text-3xl text-accent" />
-          <span className="sr-only">{t("close")}</span>
+          <span className="sr-only">{t("General.close")}</span>
         </SheetPrimitive.Close>
       </SheetPrimitive.Content>
     </SheetPortal>

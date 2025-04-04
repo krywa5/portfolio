@@ -1,5 +1,6 @@
 "use client";
 
+import { START_YEAR_OF_MY_CAREER } from "@/shared/constants";
 import { useTranslations } from "next-intl";
 import { FunctionComponent } from "react";
 import CountUp from "react-countup";
@@ -9,8 +10,6 @@ type Stat = {
   text: string;
   suffix?: string;
 };
-
-const START_YEAR_OF_MY_CAREER = 2019;
 
 const Stats: FunctionComponent = () => {
   const t = useTranslations("Stats");
