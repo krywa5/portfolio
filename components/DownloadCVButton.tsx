@@ -5,11 +5,12 @@ import { FiDownload } from "react-icons/fi";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
+import { Locales } from "@/shared/enums/Locales";
 
 const DownloadCVButton: FunctionComponent = () => {
   const t = useTranslations();
-  const params = useParams<{ locale: "pl" | "en" }>();
-  const locale: "pl" | "en" = params?.locale ?? "en";
+  const params = useParams<{ locale: Locales }>();
+  const locale = params?.locale ?? "en";
 
   return (
     <Link
