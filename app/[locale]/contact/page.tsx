@@ -22,30 +22,13 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { ToastContent } from "@/components/ui/toast";
 import ErrorMessage from "@/components/ErrorMessage";
 import FormSuccessMessage from "@/components/FormSuccessMessage";
+import { useTranslations } from "next-intl";
 
 type Info = {
   title: string;
   description: string;
   icon: JSX.Element;
 };
-
-const info: Info[] = [
-  {
-    title: "Phone",
-    description: "(+48) 889 487 298",
-    icon: <FaPhoneAlt />,
-  },
-  {
-    title: "Email",
-    description: "krystian.wasilewski@o2.pl",
-    icon: <FaEnvelope />,
-  },
-  {
-    title: "Address",
-    description: "ul. Piękna 20B, 09-530 Gąbin",
-    icon: <FaMapMarkerAlt />,
-  },
-];
 
 const Contact: FunctionComponent = () => {
   const {
@@ -60,6 +43,26 @@ const Contact: FunctionComponent = () => {
   const [isReCaptchaError, setIsReCaptchaError] = useState(false);
   const [isSuccessMessageOpen, setIsSuccessMessageOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const t = useTranslations("Contact");
+  const tAll = useTranslations();
+
+  const info: Info[] = [
+    {
+      title: t("phone"),
+      description: "(+48) 889 487 298",
+      icon: <FaPhoneAlt />,
+    },
+    {
+      title: t("email"),
+      description: "krystian.wasilewski@o2.pl",
+      icon: <FaEnvelope />,
+    },
+    {
+      title: t("address"),
+      description: "Gąbin, woj. Mazowieckie",
+      icon: <FaMapMarkerAlt />,
+    },
+  ];
 
   const resetForm = () => {
     reset();
@@ -120,41 +123,38 @@ const Contact: FunctionComponent = () => {
               className="flex flex-col gap-6 p-10 bg-[#27272c]"
               onSubmit={handleSubmit(onSubmit)}
             >
-              <h3 className="text-4xl text-accent">
-                Let&apos;s work together!
-              </h3>
-              <p className="text-white/60">
-                I look forward to hearing from you - together, we can create
-                something exceptional!
-              </p>
+              <h3 className="text-4xl text-accent">{t("lets-work")}</h3>
+              <p className="text-white/60">{t("lets-work-desc")}</p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input
                   {...register("firstName", {
-                    required: "Firstname is required.",
+                    required: t("required", { field: t("firstName") }),
                   })}
                   type="firstname"
-                  placeholder="Firstname"
+                  placeholder={t("firstName")}
                   error={errors?.firstName?.message}
                 />
                 <Input
                   {...register("lastName", {
-                    required: "Lastname is required.",
+                    required: t("required", { field: t("lastName") }),
                   })}
                   type="lastname"
-                  placeholder="Lastname"
+                  placeholder={t("lastName")}
                   error={errors?.lastName?.message}
                 />
                 <Input
-                  {...register("email", { required: "Email is required." })}
+                  {...register("email", {
+                    required: t("required", { field: t("email") }),
+                  })}
                   type="email"
-                  placeholder="Email address"
+                  placeholder={t("email")}
                   error={errors?.email?.message}
                 />
                 <Input
                   {...register("phone")}
                   type="phone"
-                  placeholder="Phone number"
+                  placeholder={t("phone-number")}
                   error={errors?.phone?.message}
                 />
               </div>
@@ -163,11 +163,11 @@ const Contact: FunctionComponent = () => {
                 onValueChange={(value: Services) => setValue("service", value)}
               >
                 <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select a service" />
+                  <SelectValue placeholder={t("select-service")} />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectLabel>Select a service</SelectLabel>
+                    <SelectLabel>{t("select-service")}</SelectLabel>
                     <SelectItem value={Services.Frontend}>
                       Frontend development
                     </SelectItem>
@@ -182,9 +182,11 @@ const Contact: FunctionComponent = () => {
               </Select>
               {/* textarea */}
               <Textarea
-                {...register("message", { required: "Message is required." })}
+                {...register("message", {
+                  required: t("required", { field: t("message") }),
+                })}
                 className="h-[200px]"
-                placeholder="Type your message here"
+                placeholder={t("type-message")}
                 error={errors?.message?.message}
               />
               {/* footer */}
@@ -196,18 +198,20 @@ const Contact: FunctionComponent = () => {
                     onChange={(token) => setIsReCaptchaError(!token)}
                   />
                   {isReCaptchaError && (
-                    <ErrorMessage message="reCAPTCHA is required." />
+                    <ErrorMessage
+                      message={t("required", { field: t("reCAPTCHA") })}
+                    />
                   )}
                 </div>
                 <Button size="md" className="max-w-40" disabled={isSubmitting}>
-                  {isSubmitting ? "Sending..." : "Send message"}
+                  {isSubmitting ? `${t("sending")}...` : t("send-message")}
                 </Button>
               </div>
             </form>
             {isSuccessMessageOpen && (
               <FormSuccessMessage
-                title="Email successfully sent!"
-                description="I will respond as soon as possible. Thank you."
+                title={t("email-sent")}
+                description={t("email-thanks")}
                 onClose={onFormClose}
               />
             )}
@@ -233,8 +237,8 @@ const Contact: FunctionComponent = () => {
       <ToastContent
         isOpen={isErrorToastOpen}
         setIsOpen={setIsErrorToastOpen}
-        title="Error :("
-        description="Sorry, we are doing the best we can. Please try again later."
+        title={`${tAll("General.error")} :(`}
+        description={t("email-error")}
         type="error"
       />
     </motion.section>

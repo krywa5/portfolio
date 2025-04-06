@@ -10,9 +10,12 @@ import {
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
 import { navLinks } from "@/shared/navLinks";
+import LocaleSwitcher from "./LocaleSwitcher";
+import { useTranslations } from "next-intl";
 
 const MobileNav: FunctionComponent = () => {
   const pathname = usePathname();
+  const t = useTranslations("Nav");
 
   return (
     <Sheet>
@@ -40,10 +43,11 @@ const MobileNav: FunctionComponent = () => {
                   "text-accent border-b-2 border-accent"
                 } text-xl capitalize hover:text-accent transition-all`}
               >
-                {link.name}
+                {t(link.name)}
               </SheetClose>
             </Link>
           ))}
+          <LocaleSwitcher variant="mobile" className="mt-6" />
         </nav>
       </SheetContent>
     </Sheet>

@@ -12,7 +12,8 @@ import {
 } from "@/components/ui/tooltip";
 import Link from "next/link";
 import Image from "next/image";
-import WorkSliderButtons from "@/components/WorkSliderButtons";
+import ProjectsSliderButtons from "@/components/ProjectsSliderButtons";
+import { useTranslations } from "next-intl";
 
 type Project = {
   num: string;
@@ -25,51 +26,66 @@ type Project = {
   github: string;
 };
 
-const projects: Project[] = [
-  {
-    num: "01",
-    category: "frontend",
-    title: "Forkify",
-    description: "Recipes search engine.",
-    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
-    image: "/assets/work/thumb1.png",
-    live: "https://krywa5.github.io/forkify/",
-    github: "https://github.com/krywa5/forkify",
-  },
-  {
-    num: "02",
-    category: "frontend",
-    title: "Income manager",
-    description: "A tool to convert foreign revenues into Polish zloty.",
-    stack: [
-      { name: "React.js" },
-      { name: "Typescript" },
-      { name: "Material UI" },
-    ],
-    image: "/assets/work/thumb2.png",
-    live: "https://krywa5.github.io/income-manager",
-    github: "https://github.com/krywa5/income-manager",
-  },
-  {
-    num: "03",
-    category: "frontend",
-    title: "Natours",
-    description:
-      "The landing page is full of modern design and good-looking animations.",
-    stack: [{ name: "Html 5" }, { name: "SCSS" }, { name: "Javascript" }],
-    image: "/assets/work/thumb3.png",
-    live: "https://krywa5.github.io/natours/",
-    github: "https://github.com/krywa5/natours",
-  },
-];
+const Projects: FunctionComponent = () => {
+  const t = useTranslations("Projects");
+  const tAll = useTranslations();
 
-const Work: FunctionComponent = () => {
+  const projects: Project[] = [
+    {
+      num: "01",
+      category: "frontend",
+      title: "Forkify",
+      description: t("forkify-desc"),
+      stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
+      image: "/assets/projects/thumb1.png",
+      live: "https://krywa5.github.io/forkify/",
+      github: "https://github.com/krywa5/forkify",
+    },
+    {
+      num: "02",
+      category: "fullstack",
+      title: "Tax tool",
+      description: t("tax-tool-desc"),
+      stack: [
+        { name: "React.js" },
+        { name: "Typescript" },
+        { name: "Material UI" },
+        { name: "Firebase" },
+      ],
+      image: "/assets/projects/thumb2.png",
+      live: "https://krywa5.github.io/tax-tool-ts/",
+      github: "https://github.com/krywa5/tax-tool-ts",
+    },
+    {
+      num: "03",
+      category: "frontend",
+      title: "Natours",
+      description: t("natours-desc"),
+      stack: [{ name: "Html 5" }, { name: "SCSS" }, { name: "Javascript" }],
+      image: "/assets/projects/thumb3.png",
+      live: "https://krywa5.github.io/natours/",
+      github: "https://github.com/krywa5/natours",
+    },
+    {
+      num: "04",
+      category: "frontend",
+      title: "Income manager",
+      description: t("income-manager-desc"),
+      stack: [
+        { name: "React.js" },
+        { name: "Typescript" },
+        { name: "Material UI" },
+      ],
+      image: "/assets/projects/thumb4.png",
+      live: "https://krywa5.github.io/income-manager",
+      github: "https://github.com/krywa5/income-manager",
+    },
+  ];
+
   const [project, setProject] = useState<Project>(projects[0]);
 
   const handleSlideChange = (swiper: SwiperClass) => {
-    // get current slide index
-    const currentIndex = swiper.activeIndex;
-    // update project state based on current slide index
+    const currentIndex = swiper.realIndex;
     setProject(projects[currentIndex]);
   };
 
@@ -92,12 +108,12 @@ const Work: FunctionComponent = () => {
               </div>
               {/* project category */}
               <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {project.category} project
+                {t("project", { type: project.category })}
               </h2>
               {/* project description */}
               <p className="text-white/60">{project.description}</p>
               {/* stock */}
-              <ul className="flex gap-4">
+              <ul className="flex flex-wrap gap-4">
                 {project.stack.map((stack, index) => (
                   <li key={index} className="text-xl text-accent">
                     {stack.name}
@@ -122,7 +138,7 @@ const Work: FunctionComponent = () => {
                         <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Live project</p>
+                        <p>{t("live-project")}</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -139,7 +155,7 @@ const Work: FunctionComponent = () => {
                         <BsGithub className="text-white text-3xl group-hover:text-accent" />
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p>Github repository</p>
+                        <p>{t("github-repo")}</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -153,6 +169,7 @@ const Work: FunctionComponent = () => {
               slidesPerView={1}
               className="xl:h-[520px] mb-12"
               onSlideChange={handleSlideChange}
+              loop
             >
               {projects.map((project, index) => (
                 <SwiperSlide key={index} className="w-full">
@@ -165,14 +182,16 @@ const Work: FunctionComponent = () => {
                         src={project.image}
                         fill
                         className="object-cover"
-                        alt={`${project.title} thumbnail`}
+                        alt={`${project.title} ${tAll(
+                          "General.thumbnail"
+                        ).toLowerCase()}`}
                       />
                     </div>
                   </div>
                 </SwiperSlide>
               ))}
               {/* slider buttons */}
-              <WorkSliderButtons
+              <ProjectsSliderButtons
                 containerClassName="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
                 btnClassName="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
               />
@@ -184,4 +203,4 @@ const Work: FunctionComponent = () => {
   );
 };
 
-export default Work;
+export default Projects;

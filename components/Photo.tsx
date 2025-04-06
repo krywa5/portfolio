@@ -2,8 +2,11 @@
 import { FunctionComponent } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const Photo: FunctionComponent = () => {
+  const tAll = useTranslations();
+
   return (
     <div className="w-full h-full relative">
       {/* image */}
@@ -20,7 +23,7 @@ const Photo: FunctionComponent = () => {
           priority
           quality={100}
           fill
-          alt="Photo of me"
+          alt={tAll("General.photo-of-me")}
           className="object-contain saturate-50"
         />
       </motion.div>

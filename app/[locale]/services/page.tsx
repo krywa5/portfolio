@@ -4,6 +4,7 @@ import { FunctionComponent } from "react";
 import { BsArrowDownRight } from "react-icons/bs";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 type Service = {
   num: string;
@@ -12,38 +13,35 @@ type Service = {
   href: string;
 };
 
-const services: Service[] = [
-  {
-    num: "01",
-    title: "Frontend Development",
-    description:
-      "I create modern, responsive, and intuitive user interfaces using the latest frontend tools and technologies, ensuring a seamless user experience across different devices.",
-    href: "https://en.wikipedia.org/wiki/Front-end_web_development",
-  },
-  {
-    num: "02",
-    title: "Fullstack Development",
-    description:
-      "I handle the complete development of web applications, integrating frontend and backend, enabling the delivery of fully functional, efficient solutions on both the visual and server sides.",
-    href: "https://aws.amazon.com/what-is/full-stack-development/",
-  },
-  {
-    num: "03",
-    title: "SEO",
-    description:
-      "I optimize websites for search engines, enhancing visibility, rankings, and driving more organic traffic, leading to improved business outcomes and increased user conversions.",
-    href: "https://en.wikipedia.org/wiki/Search_engine_optimization",
-  },
-  {
-    num: "04",
-    title: "Logo",
-    description:
-      "I design unique and professional logos that not only stand out visually but also accurately reflect the brand's identity and values, helping to build its recognition.",
-    href: "https://www.bigcommerce.com/glossary/what-is-a-logo-design/",
-  },
-];
-
 const Services: FunctionComponent = () => {
+  const t = useTranslations("Services");
+  const services: Service[] = [
+    {
+      num: "01",
+      title: t("frontend-development"),
+      description: t("frontend-desc"),
+      href: "https://en.wikipedia.org/wiki/Front-end_web_development",
+    },
+    {
+      num: "02",
+      title: t("fullstack-development"),
+      description: t("fullstack-desc"),
+      href: "https://aws.amazon.com/what-is/full-stack-development/",
+    },
+    {
+      num: "03",
+      title: t("seo"),
+      description: t("seo-desc"),
+      href: "https://en.wikipedia.org/wiki/Search_engine_optimization",
+    },
+    {
+      num: "04",
+      title: t("logo"),
+      description: t("logo-desc"),
+      href: "https://www.bigcommerce.com/glossary/what-is-a-logo-design/",
+    },
+  ];
+
   return (
     <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0">
       <div className="container mx-auto">

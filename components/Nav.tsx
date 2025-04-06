@@ -1,15 +1,19 @@
 "use client";
 
 import { navLinks } from "@/shared/navLinks";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FunctionComponent } from "react";
 
 const Nav: FunctionComponent = () => {
+  const t = useTranslations("Nav");
   const pathname = usePathname();
+  const navLinksDesktop = navLinks.filter((link) => link.name !== "contact");
+
   return (
     <nav className="flex gap-8">
-      {navLinks.map((link, index) => (
+      {navLinksDesktop.map((link, index) => (
         <Link
           href={link.path}
           key={index}
@@ -17,7 +21,7 @@ const Nav: FunctionComponent = () => {
             link.path === pathname && "text-accent border-b-2 border-accent"
           } capitalize font-medium hover:text-accent transition-all`}
         >
-          {link.name}
+          {t(link.name)}
         </Link>
       ))}
     </nav>

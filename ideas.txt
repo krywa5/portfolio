@@ -1,3 +1,2 @@
 - unify links
 - create Logo component
-- implement translations

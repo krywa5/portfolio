@@ -1,0 +1,1 @@
+export const START_YEAR_OF_MY_CAREER = 2019;
