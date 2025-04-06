@@ -9,12 +9,13 @@ import {
 } from "@/components/ui/sheet";
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
-import { useNavLinks } from "@/shared/useNavLinks";
+import { navLinks } from "@/shared/navLinks";
 import LocaleSwitcher from "./LocaleSwitcher";
+import { useTranslations } from "next-intl";
 
 const MobileNav: FunctionComponent = () => {
   const pathname = usePathname();
-  const navLinks = useNavLinks();
+  const t = useTranslations("Nav");
 
   return (
     <Sheet>
@@ -24,7 +25,7 @@ const MobileNav: FunctionComponent = () => {
       <SheetContent className="flex flex-col">
         {/* logo */}
         <div className="mt-auto mb-auto text-center text-2xl">
-          <Link href={navLinks[0].path}>
+          <Link href="/">
             <SheetClose>
               <h1 className="text-4xl font-semibold">
                 WWWasilewski<span className="text-accent">.</span>
@@ -42,7 +43,7 @@ const MobileNav: FunctionComponent = () => {
                   "text-accent border-b-2 border-accent"
                 } text-xl capitalize hover:text-accent transition-all`}
               >
-                {link.name}
+                {t(link.name)}
               </SheetClose>
             </Link>
           ))}

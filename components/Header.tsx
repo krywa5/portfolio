@@ -1,5 +1,3 @@
-"use client";
-
 import { FunctionComponent } from "react";
 import Link from "next/link";
 import { Button } from "./ui/button";
@@ -7,11 +5,10 @@ import Nav from "./Nav";
 import MobileNav from "./MobileNav";
 import LocaleSwitcher from "./LocaleSwitcher";
 import { useTranslations } from "next-intl";
-import { useNavLinks } from "@/shared/useNavLinks";
+import { navLinks } from "@/shared/navLinks";
 
 const Header: FunctionComponent = () => {
   const t = useTranslations("Nav");
-  const navLinks = useNavLinks();
 
   return (
     <header className="py-8 xl:py-12 text-white sticky bg-primary top-0 left-0 right-0 z-30 xl:static">
