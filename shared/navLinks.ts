@@ -17,8 +17,8 @@ export const navLinks: NavLink[] = [
     path: "/resume",
   },
   {
-    name: "work",
-    path: "/work",
+    name: "projects",
+    path: "/projects",
   },
   {
     name: "contact",

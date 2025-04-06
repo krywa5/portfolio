@@ -8,12 +8,12 @@ import { Locales, localesArray } from "@/shared/enums/Locales";
 
 interface LocaleSwitcherProps {
   className?: string;
-  variant?: "default" | "mobile";
+  variant?: "desktop" | "mobile";
 }
 
 const LocaleSwitcher: FunctionComponent<LocaleSwitcherProps> = ({
   className,
-  variant = "default",
+  variant = "mobile",
 }) => {
   const isMobile = variant === "mobile";
 
@@ -30,7 +30,7 @@ const LocaleSwitcher: FunctionComponent<LocaleSwitcherProps> = ({
 
 interface LocaleFlagButtonProps {
   locale: Locales;
-  variant: "default" | "mobile";
+  variant: "desktop" | "mobile";
 }
 
 const LocaleFlagButton: FunctionComponent<LocaleFlagButtonProps> = ({

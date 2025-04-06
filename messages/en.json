@@ -8,7 +8,7 @@
     "frontend-development": "Frontend Development",
     "frontend-desc": "I create modern, responsive, and intuitive user interfaces using the latest frontend tools and technologies, ensuring a seamless user experience across different devices.",
     "fullstack-development": "Fullstack Development",
-    "fullstack-desc": "I handle the complete development of web applications, integrating frontend and backend, enabling the delivery of fully functional, efficient solutions on both the visual and server sides.",
+    "fullstack-desc": "I build complex web solutions - from frontend to backend. I provide fast, secure sites with built-in customized content management system, providing best user and admin experience.",
     "seo": "SEO",
     "seo-desc": "I optimize websites for search engines, enhancing visibility, rankings, and driving more organic traffic, leading to improved business outcomes and increased user conversions.",
     "logo": "Logo",
@@ -30,18 +30,20 @@
     "nationality": "Nationality",
     "nationality-value": "Polish",
     "email": "Email",
-    "freelance": "Freelance",
-    "freelance-value": "Available",
     "languages": "Languages",
     "languages-value": "English, polish",
     "education": "Education",
-    "skills": "Skills"
+    "skills": "Skills",
+    "warsaw-university-of-technology": "Warsaw University of Technology",
+    "civil-engineer": "Civil Engineer"
   },
-  "Work": {
+  "Projects": {
     "forkify-desc": "Recipes search engine.",
-    "income-manager-desc": "A tool to convert foreign revenues into Polish zloty.",
+    "income-manager-desc": "A tool to convert foreign revenues into PLN.",
     "natours-desc": "The landing page is full of modern design and good-looking animations.",
+    "tax-tool-desc": "An app to calculate taxes to be paid in Poland from foreign income.",
     "live-project": "Live project",
+    "project": "{type} project",
     "github-repo": "Github repository"
   },
   "Contact": {
@@ -68,7 +70,7 @@
     "home": "Home",
     "services": "Services",
     "resume": "Resume",
-    "work": "Work",
+    "projects": "Projects",
     "contact": "Contact"
   },
   "Stats": {

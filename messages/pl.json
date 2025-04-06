@@ -8,7 +8,7 @@
     "frontend-development": "Frontend Development",
     "frontend-desc": "Tworzę nowoczesne, responsywne i intuicyjne interfejsy użytkownika przy użyciu najnowszych narzędzi i technologii frontendowych, zapewniając płynną obsługę na różnych urządzeniach.",
     "fullstack-development": "Fullstack Development",
-    "fullstack-desc": "Zajmuję się kompleksowym tworzeniem aplikacji internetowych, integrując frontend i backend, umożliwiając dostarczanie w pełni funkcjonalnych, wydajnych rozwiązań zarówno po stronie wizualnej, jak i serwerowej.",
+    "fullstack-desc": "Buduję kompleksowe rozwiązania webowe - od frontendu po backend. Zapewniam szybkie, bezpieczne strony z wbudowanym systemem zarządzania treścią dostosowanym do potrzeb klienta.",
     "seo": "SEO",
     "seo-desc": "Optymalizuję witryny pod kątem wyszukiwarek, poprawiając widoczność, rankingi i zwiększając ruch organiczny, co prowadzi do lepszych wyników biznesowych i zwiększonej konwersji użytkowników.",
     "logo": "Logo",
@@ -30,18 +30,20 @@
     "nationality": "Narodowość",
     "nationality-value": "Polska",
     "email": "Email",
-    "freelance": "Status",
-    "freelance-value": "Dostępny",
     "languages": "Języki",
     "languages-value": "Polski, angielski",
     "education": "Edukacja",
-    "skills": "Umiejętności"
+    "skills": "Umiejętności",
+    "warsaw-university-of-technology": "Politechnika Warszawska",
+    "civil-engineer": "Inżynier budownictwa"
   },
-  "Work": {
+  "Projects": {
     "forkify-desc": "Aplikacja do wyszukiwania przepisów.",
-    "income-manager-desc": "Narzędzie do przeliczania zagranicznych przychodów.",
+    "income-manager-desc": "Narzędzie do przeliczania zagranicznych przychodów na PLN.",
     "natours-desc": "The landing page z nowoczesnym designem i przyjemnymi animacjami.",
+    "tax-tool-desc": "Aplikacja do obliczania podatków w Polsce z zagranicznych przychodów",
     "live-project": "Live demo",
+    "project": "Projekt {type}",
     "github-repo": "Repozytorium github"
   },
   "Contact": {
@@ -65,10 +67,10 @@
     "email-error": "Coś poszło nie tak. Spróbuj ponownie."
   },
   "Nav": {
-    "home": "Główna",
+    "home": "Strona główna",
     "services": "Usługi",
-    "resume": "Komptenecje",
-    "work": "Praca",
+    "resume": "Kompetencje",
+    "projects": "Projekty",
     "contact": "Kontakt"
   },
   "Stats": {

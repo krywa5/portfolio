@@ -3,13 +3,13 @@ import { FunctionComponent } from "react";
 import { useSwiper } from "swiper/react";
 import { PiCaretLeftBold, PiCaretRightBold } from "react-icons/pi";
 
-interface WorkSliderButtonsProps {
+interface ProjectsSliderButtonsProps {
   containerClassName?: string;
   btnClassName?: string;
   iconClassName?: string;
 }
 
-const WorkSliderButtons: FunctionComponent<WorkSliderButtonsProps> = ({
+const ProjectsSliderButtons: FunctionComponent<ProjectsSliderButtonsProps> = ({
   containerClassName,
   btnClassName,
   iconClassName,
@@ -31,4 +31,4 @@ const WorkSliderButtons: FunctionComponent<WorkSliderButtonsProps> = ({
   );
 };
 
-export default WorkSliderButtons;
+export default ProjectsSliderButtons;

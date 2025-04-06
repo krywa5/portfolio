@@ -59,7 +59,7 @@ const Contact: FunctionComponent = () => {
     },
     {
       title: t("address"),
-      description: "ul. Piękna 20B, 09-530 Gąbin",
+      description: "Gąbin, woj. Mazowieckie",
       icon: <FaMapMarkerAlt />,
     },
   ];
@@ -76,7 +76,7 @@ const Contact: FunctionComponent = () => {
       setIsSubmitting(true);
 
       try {
-        const response = await fetch("/api/email34234", {
+        const response = await fetch("/api/email", {
           method: "POST",
           headers: {
             Accept: "application/json, text/plain, */*",

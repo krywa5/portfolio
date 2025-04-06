@@ -1,5 +1,5 @@
 "use client";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import {
   FaHtml5,
   FaCss3,
@@ -50,6 +50,8 @@ type About = {
 };
 
 const Resume: FunctionComponent = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
   const t = useTranslations("Resume");
   const tAll = useTranslations();
 
@@ -112,8 +114,8 @@ const Resume: FunctionComponent = () => {
         duration: "2019",
       },
       {
-        institution: "Warsaw University of Technology",
-        course: "Civil Engineer (degree)",
+        institution: t("warsaw-university-of-technology"),
+        course: t("civil-engineer"),
         duration: "2013 - 2018",
       },
     ],
@@ -193,20 +195,12 @@ const Resume: FunctionComponent = () => {
         }),
       },
       {
-        fieldName: "LinkedIn",
-        fieldValue: "krystianwasilewski",
-      },
-      {
-        fieldName: t("nationality"),
-        fieldValue: t("nationality-value"),
-      },
-      {
         fieldName: t("email"),
         fieldValue: "krystian.wasilewski@o2.pl",
       },
       {
-        fieldName: t("freelance"),
-        fieldValue: t("freelance-value"),
+        fieldName: t("nationality"),
+        fieldValue: t("nationality-value"),
       },
       {
         fieldName: t("languages"),
@@ -214,6 +208,11 @@ const Resume: FunctionComponent = () => {
       },
     ],
   };
+
+  useEffect(() => {
+    // Detect if the user is on a mobile device
+    setIsMobile(/Mobi|Android/i.test(navigator.userAgent));
+  }, []);
 
   return (
     <motion.div
@@ -309,7 +308,14 @@ const Resume: FunctionComponent = () => {
                     <li key={index}>
                       <TooltipProvider delayDuration={100}>
                         <Tooltip>
-                          <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
+                          <TooltipTrigger
+                            onClick={(e) => {
+                              if (isMobile) {
+                                e.preventDefault();
+                              }
+                            }}
+                            className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group"
+                          >
                             <div className="text-6xl group-hover:text-accent transition-all duration-300">
                               {skill.icon}
                             </div>
