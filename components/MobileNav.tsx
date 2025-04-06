@@ -7,7 +7,7 @@ import {
   SheetContent,
   SheetClose,
 } from "@/components/ui/sheet";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { CiMenuFries } from "react-icons/ci";
 import { navLinks } from "@/shared/navLinks";
 import LocaleSwitcher from "./LocaleSwitcher";
@@ -16,6 +16,7 @@ import { useTranslations } from "next-intl";
 const MobileNav: FunctionComponent = () => {
   const pathname = usePathname();
   const t = useTranslations("Nav");
+  const homePath = navLinks.find((link) => link.name === "home")?.path ?? "/";
 
   return (
     <Sheet>
@@ -25,7 +26,7 @@ const MobileNav: FunctionComponent = () => {
       <SheetContent className="flex flex-col">
         {/* logo */}
         <div className="mt-auto mb-auto text-center text-2xl">
-          <Link href="/">
+          <Link href={homePath}>
             <SheetClose>
               <h1 className="text-4xl font-semibold">
                 WWWasilewski<span className="text-accent">.</span>
