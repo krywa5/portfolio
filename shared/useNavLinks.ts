@@ -1,3 +1,5 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import { Locales } from "./enums/Locales";
@@ -12,6 +14,7 @@ export const useNavLinks = (): NavLink[] => {
   const params = useParams<{ locale: Locales }>();
   const locale = params?.locale ?? "en";
 
+  // TODO: przy przejściach coś nie tak
   return [
     {
       name: t("home"),
