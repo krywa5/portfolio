@@ -14,7 +14,7 @@ const DownloadCVButton: FunctionComponent = () => {
 
   return (
     <Link
-      href={`/assets/KrystianWasilewski_CV_${locale}.pdf`}
+      href={`/assets/Krystian_Wasilewski_CV_${locale.toUpperCase()}.pdf`}
       target="_blank"
       rel="noopener noreferrer"
     >
